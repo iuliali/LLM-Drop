@@ -4,15 +4,15 @@ GPUs="0,1,2,3"
 
 dataset="c4_val"
 prune_data_type="pt"
-n_calibration_samples=256
+n_calibration_samples=16
 seq_len=2048
 
 prune_method="block_drop"
 block_drop_method="discrete"
 drop_n=8
 
-model_name=mistral-base
-model_name_or_path=mistralai/Mistral-7B-v0.1
+model_name=RoLlama2-7b-Base
+model_name_or_path="./RoLlama2-7b-Base/"
 
 folder_name="${model_name}-${prune_method}-${block_drop_method}-drop${drop_n}"
 similarity_cache_file="../results_prune/cache/${model_name}-${prune_method}-${dataset}-${n_calibration_samples}samples.pt"

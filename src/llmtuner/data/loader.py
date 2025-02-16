@@ -31,6 +31,8 @@ def load_single_dataset(
     data_args: "DataArguments",
 ):
     logger.info("Loading dataset {}...".format(dataset_attr))
+    print ("HEI")
+    print (dataset_attr)
     data_path, data_name, data_dir, data_files = None, None, None, None
     if dataset_attr.load_from in ["hf_hub", "ms_hub"]:
         data_path = dataset_attr.dataset_name

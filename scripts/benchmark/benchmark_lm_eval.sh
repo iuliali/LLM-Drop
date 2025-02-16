@@ -14,9 +14,9 @@ num_fewshots=("0" "0" "0" "0" "5" "5" "5" "10" "25")
 for model_name in "${model_names[@]}"
 do
     # Download the model to a local directory. 
-    git lfs install
-    git clone https://huggingface.co/mistralai/Mistral-7B-v0.1
-    mv Mistral-7B-v0.1 ./"$model_name"_model
+    # git lfs install
+    # git clone https://huggingface.co/mistralai/Mistral-7B-v0.1
+    # mv Mistral-7B-v0.1 ./"$model_name"_model
 
     for drop_module in "${drop_modules[@]}"
     do
