@@ -1,3 +1,12 @@
+### Steps
+
+1. git clone this repo
+
+``` cd LLM-DROP ```
+
+``` git clone  https://huggingface.co/OpenLLM-Ro/RoLlama2-7b-Base```
+
+-
 ## What Matters in Transformers? Not All Attention is Needed
 
 **[Shwai He](https://shwai-he.github.io/)\*, Guoheng Sun\*, Zheyu Shen, [Ang Li](https://www.ang-li.com/)**
