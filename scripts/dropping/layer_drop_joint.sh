@@ -2,7 +2,7 @@
 port="21304"
 GPUs="0,1,2,3"
 
-dataset="c4_val"
+dataset="saroco_val"
 prune_data_type="pt"
 n_calibration_samples=32
 seq_len=2048
@@ -10,10 +10,10 @@ seq_len=2048
 prune_method="layer_drop"
 layer_drop_method="discrete"
 target_layer="all"
-drop_n=8
+drop_n=4
 
-model_name=RoLlama2-7b-Base
-model_name_or_path="./RoLlama2-7b-Base/"
+model_name=RoLlama2-7b-Instruct
+model_name_or_path="./RoLlama2-7b-Instruct/"
 
 folder_name="${model_name}-${prune_method}_${target_layer}-${layer_drop_method}-drop${drop_n}"
 similarity_cache_file="../results_prune/cache/${model_name}-${prune_method}_${target_layer}-${dataset}-${n_calibration_samples}samples.pt"
@@ -48,7 +48,7 @@ CUDA_VISIBLE_DEVICES=$GPUs accelerate launch --main_process_port $port \
 
 layer_drop_method="post_dropping"
 # set only_update_config to True to save the disk memory
-only_update_config=False
+only_update_config=True
 
 python \
   src/compress.py \

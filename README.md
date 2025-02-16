@@ -11,6 +11,9 @@ back to `LLM-DROP`
 ``` cd ..```
 
 ``` git clone  https://huggingface.co/OpenLLM-Ro/RoLlama2-7b-Base```
+or
+``` git clone  https://huggingface.co/OpenLLM-Ro/RoLlama2-7b-Instruct```
+
 
 ``` git clone https://github.com/EleutherAI/lm-evaluation-harness.git ```
 
@@ -22,7 +25,52 @@ back to `LLM-DROP`
 
 ``` cd ..```
 
-_
+To drop blocks:
+- open `scripts/dropping/block_drop.sh`
+- set model, model_name_or_path, drop_n (how many blocks you want to drop), dataset, n_calibration_samples (how many samples from dataset to use to compute similarities between input and output and drop blocks)
+- execute in conda env:
+```
+bash scripts/dropping/block_drop.sh
+``` 
+---
+To drop layes:
+- there are 4 methods to drop layers:
+  1. drop only mlp
+  2. drop only attn
+  3. drop both in one single step
+  4. drop both/ one type iteratively (we will not use this for our experiments)
+- open `scripts/dropping/layer_drop.sh`
+- set model, model_name_or_path, drop_n (how many layes you want to drop), dataset, n_calibration_samples (how many samples from dataset to use to compute similarities between input and output and drop layers)
+- set `target_layer="attn"` or `target_layer="mlp"`
+- execute in conda env:
+```
+bash scripts/dropping/layer_drop.sh
+``` 
+
+- open `scripts/dropping/layer_drop_joint.sh`
+- set model, model_name_or_path, drop_n (how many layes you want to drop), dataset, n_calibration_samples (how many samples from dataset to use to compute similarities between input and output and drop layers)
+- `target_layer="all` will REMAIN SET like this
+- execute in conda env:
+```
+bash scripts/dropping/layer_drop_joint.sh
+``` 
+---
+To run benchmarks:
+- be sure you cloned `lm_evaluation-harness`
+- be sure you have installed it
+- check the tasks in terminal: `lm-eval --tasks list`, or `lm-eval -h` (just to see you have installed it)
+- look into `scripts/benchmark/lm_eval_block.sh` and `scripts/benchmark/lm_eval_layer.sh` and set the tasks and all needed parameters (see `lm-eval -h` for help)
+- in `LLM-DROP` directory and conda env:
+```
+bash scripts/benchmark/lm_eval_block.sh
+```
+
+```
+bash scripts/benchmark/lm_eval_layer.sh
+```
+
+---
+
 ## What Matters in Transformers? Not All Attention is Needed
 
 **[Shwai He](https://shwai-he.github.io/)\*, Guoheng Sun\*, Zheyu Shen, [Ang Li](https://www.ang-li.com/)**
