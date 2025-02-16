@@ -161,3 +161,6 @@ cython_debug/
 *.DS_Store*
 .DS_Store
 *.out
+lm-evaluation-harness
+RoLLama2-7b-Base
+src/llmtuner/compression/.DS_Store

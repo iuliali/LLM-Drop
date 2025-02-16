@@ -1,12 +1,28 @@
 ### Steps
 
-1. git clone this repo
+``` git clone https://github.com/iuliali/LLM-Drop.git ```
 
 ``` cd LLM-DROP ```
 
+``` pip install -e . ```
+
+back to `LLM-DROP`
+
+``` cd ..```
+
 ``` git clone  https://huggingface.co/OpenLLM-Ro/RoLlama2-7b-Base```
 
--
+``` git clone https://github.com/EleutherAI/lm-evaluation-harness.git ```
+
+```cd lm-evaluation-harness ```
+
+``` pip install -e . ```
+
+back to `LLM-DROP`
+
+``` cd ..```
+
+_
 ## What Matters in Transformers? Not All Attention is Needed
 
 **[Shwai He](https://shwai-he.github.io/)\*, Guoheng Sun\*, Zheyu Shen, [Ang Li](https://www.ang-li.com/)**

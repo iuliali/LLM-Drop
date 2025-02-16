@@ -10,7 +10,7 @@ drop_nums=("8") # The number of dropped modules.
 
 # tasks=("boolq") # "rte" "openbookqa" "piqa" "mmlu" "winogrande" "gsm8k" "hellaswag" "arc_challenge")
 tasks=("xquad_ro")
-num_fewshots=("0") # "0" "0" "0" "5" "5" "5" "10" "25")
+# num_fewshots=("0") # "0" "0" "0" "5" "5" "5" "10" "25")
 # tasks=("mmlu")
 # num_fewshots=("5")
 #/Users/italpalariu/Desktop/llm/results_prune/RoLlama2-7b-Base-layer_drop_attn-discrete-drop8
@@ -39,10 +39,10 @@ do
                     --tasks ${tasks[$i]} \
                     --batch_size 1 \
                     --verbosity DEBUG \
-                    --num_fewshot ${num_fewshots[$i]} \
                     --device mps \
                     --output_path ./${num_fewshots[$i]}shot_${tasks[$i]}_"$model_name"_drop"$drop_num"_"$drop_module".json >> output_"$model_name"_drop"$drop_num"_"$drop_module".out
             done
         done
     done
 done
+#                     --num_fewshot ${num_fewshots[$i]} \

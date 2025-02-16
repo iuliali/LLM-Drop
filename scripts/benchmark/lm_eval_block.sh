@@ -3,7 +3,6 @@
 port="21804"
 GPUs="0,1,2,3,4,5,6,7"
 
-# Taking mistralai/Mistral-7B-v0.1 as an example.
 model_names=("RoLlama2-7b-Base") # The model to be compressed.
 drop_modules=("block") # "attn" ) #"block") # The modules to be dropped.
 drop_nums=("8") # The number of dropped modules.
@@ -41,7 +40,11 @@ do
                     --batch_size 1 \
                     --verbosity DEBUG \
                     --device mps \
-                    --output_path ./${num_fewshots[$i]}shot_${tasks[$i]}_"$model_name"_drop"$drop_num"_"$drop_module".json >> output_"$model_name"_drop"$drop_num"_"$drop_module".out
+                    --write_out \
+                    --log_samples \
+                    --show_config \
+                    --limit 10 \
+                    --output_path ./10-${num_fewshots[$i]}shot_${tasks[$i]}_"$model_name"_drop"$drop_num"_"$drop_module".json >> 10-output_"$model_name"_drop"$drop_num"_"$drop_module".out
             done
         done
     done
