@@ -2,9 +2,10 @@
 port="21304"
 GPUs="0,1,2,3"
 
-dataset="c4_val"
+# dataset="c4_val"
+dataset="saroco_val"
 prune_data_type="pt"
-n_calibration_samples=16
+n_calibration_samples=32
 seq_len=2048
 
 prune_method="block_drop"
