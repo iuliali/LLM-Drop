@@ -20,7 +20,7 @@ similarity_cache_file="../results_prune/cache/${model_name}-${prune_method}_${ta
 
 echo ${folder_name}
 
-output_dir=./results_prune/${folder_name}
+output_dir=../results_prune/${folder_name}
 prune_model_save_path=${output_dir}/checkpoint
 
 CUDA_VISIBLE_DEVICES=$GPUs accelerate launch --main_process_port $port \

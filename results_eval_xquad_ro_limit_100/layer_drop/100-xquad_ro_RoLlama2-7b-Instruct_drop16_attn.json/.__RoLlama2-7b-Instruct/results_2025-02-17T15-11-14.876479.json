@@ -1,0 +1,126 @@
+{
+  "results": {
+    "xquad_ro": {
+      "alias": "xquad_ro",
+      "f1,none": 0.0016687344913151364,
+      "f1_stderr,none": 0.001021803143497898,
+      "exact_match,none": 0.0,
+      "exact_match_stderr,none": 0.0
+    }
+  },
+  "group_subtasks": {
+    "xquad_ro": []
+  },
+  "configs": {
+    "xquad_ro": {
+      "task": "xquad_ro",
+      "tag": "xquad",
+      "dataset_path": "xquad",
+      "dataset_name": "xquad.ro",
+      "validation_split": "validation",
+      "doc_to_text": "Context: {{context}}\n\nÎntrebare: {{question}}\n\nRăspuns:",
+      "doc_to_target": "{{answers[\"text\"][0]}}",
+      "unsafe_code": false,
+      "process_results": "def process_results_qa(doc, results):\n    preds = results[0]\n    reference = doc[\"answers\"][\"text\"][0]\n    f1_sum = squad_metrics.compute_f1(reference, preds)\n    exact_match = squad_metrics.compute_exact(reference, preds)\n    return {\"f1\": f1_sum, \"exact_match\": exact_match}\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "exact_match",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "f1",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "until": [
+          "\n"
+        ],
+        "do_sample": false,
+        "temperature": 0.0
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0
+      }
+    }
+  },
+  "versions": {
+    "xquad_ro": 1.0
+  },
+  "n-shot": {
+    "xquad_ro": 0
+  },
+  "higher_is_better": {
+    "xquad_ro": {
+      "exact_match": true,
+      "f1": true
+    }
+  },
+  "n-samples": {
+    "xquad_ro": {
+      "original": 1190,
+      "effective": 100
+    }
+  },
+  "config": {
+    "model": "hf",
+    "model_args": "pretrained=./RoLlama2-7b-Instruct,trust_remote_code=True,dtype=bfloat16",
+    "model_num_parameters": 4855074816,
+    "model_dtype": "torch.bfloat16",
+    "model_revision": "main",
+    "model_sha": "",
+    "batch_size": "2",
+    "batch_sizes": [],
+    "device": "mps",
+    "use_cache": null,
+    "limit": 100.0,
+    "bootstrap_iters": 10,
+    "gen_kwargs": null,
+    "random_seed": 0,
+    "numpy_seed": 1234,
+    "torch_seed": 1234,
+    "fewshot_seed": 1234
+  },
+  "git_hash": "d542228",
+  "date": 1739796478.43354,
+  "pretty_env_info": "PyTorch version: 2.5.1\nIs debug build: False\nCUDA used to build PyTorch: None\nROCM used to build PyTorch: N/A\n\nOS: macOS 14.6.1 (arm64)\nGCC version: Could not collect\nClang version: 15.0.0 (clang-1500.1.0.2.5)\nCMake version: version 3.27.8\nLibc version: N/A\n\nPython version: 3.11.6 (main, Nov 20 2023, 10:07:55) [Clang 15.0.0 (clang-1500.0.40.1)] (64-bit runtime)\nPython platform: macOS-14.6.1-arm64-arm-64bit\nIs CUDA available: False\nCUDA runtime version: No CUDA\nCUDA_MODULE_LOADING set to: N/A\nGPU models and configuration: No CUDA\nNvidia driver version: No CUDA\ncuDNN version: No CUDA\nHIP runtime version: N/A\nMIOpen runtime version: N/A\nIs XNNPACK available: True\n\nCPU:\nApple M2 Max\n\nVersions of relevant libraries:\n[pip3] numpy==1.26.2\n[pip3] torch==2.5.1\n[conda] numpy                     1.26.4                   pypi_0    pypi\n[conda] torch                     2.6.0                    pypi_0    pypi",
+  "transformers_version": "4.46.0",
+  "upper_git_hash": null,
+  "tokenizer_pad_token": [
+    "<unk>",
+    "0"
+  ],
+  "tokenizer_eos_token": [
+    "</s>",
+    "2"
+  ],
+  "tokenizer_bos_token": [
+    "<s>",
+    "1"
+  ],
+  "eot_token_id": 2,
+  "max_length": 4096,
+  "task_hashes": {
+    "xquad_ro": "1f8e25ee6e3ba36a69feab4493bcb3cb3cf674b95966ffc49119230b4a6661d5"
+  },
+  "model_source": "hf",
+  "model_name": "./RoLlama2-7b-Instruct",
+  "model_name_sanitized": ".__RoLlama2-7b-Instruct",
+  "system_instruction": null,
+  "system_instruction_sha": null,
+  "fewshot_as_multiturn": false,
+  "chat_template": null,
+  "chat_template_sha": null,
+  "start_time": 33909.790642875,
+  "end_time": 35312.059340416,
+  "total_evaluation_time_seconds": "1402.2686975410033"
+}
