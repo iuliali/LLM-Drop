@@ -44,7 +44,7 @@ CUDA_VISIBLE_DEVICES=$GPUs accelerate launch --main_process_port $port \
 
 block_drop_method="post_dropping"
 # set only_update_config to True to save the disk memory
-only_update_config=False
+only_update_config=True
 
 python \
   src/compress.py \

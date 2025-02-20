@@ -2,10 +2,10 @@
   "results": {
     "xquad_ro": {
       "alias": "xquad_ro",
-      "f1,none": 0.35645155898632636,
-      "f1_stderr,none": 0.04122750994476364,
-      "exact_match,none": 0.21,
-      "exact_match_stderr,none": 0.04093601807403326
+      "f1,none": 0.6902840513145391,
+      "f1_stderr,none": "N/A",
+      "exact_match,none": 0.53,
+      "exact_match_stderr,none": "N/A"
     }
   },
   "group_subtasks": {
@@ -74,7 +74,7 @@
   "config": {
     "model": "hf",
     "model_args": "pretrained=./RoLlama2-7b-Instruct,trust_remote_code=True,dtype=bfloat16",
-    "model_num_parameters": 5391978496,
+    "model_num_parameters": 6469963776,
     "model_dtype": "torch.bfloat16",
     "model_revision": "main",
     "model_sha": "",
@@ -83,16 +83,16 @@
     "device": "mps",
     "use_cache": null,
     "limit": 100.0,
-    "bootstrap_iters": 5,
+    "bootstrap_iters": 0,
     "gen_kwargs": null,
     "random_seed": 0,
     "numpy_seed": 1234,
     "torch_seed": 1234,
     "fewshot_seed": 1234
   },
-  "git_hash": "d542228",
-  "date": 1739867435.130508,
-  "pretty_env_info": "PyTorch version: 2.5.1\nIs debug build: False\nCUDA used to build PyTorch: None\nROCM used to build PyTorch: N/A\n\nOS: macOS 14.6.1 (arm64)\nGCC version: Could not collect\nClang version: 15.0.0 (clang-1500.1.0.2.5)\nCMake version: version 3.27.8\nLibc version: N/A\n\nPython version: 3.11.6 (main, Nov 20 2023, 10:07:55) [Clang 15.0.0 (clang-1500.0.40.1)] (64-bit runtime)\nPython platform: macOS-14.6.1-arm64-arm-64bit\nIs CUDA available: False\nCUDA runtime version: No CUDA\nCUDA_MODULE_LOADING set to: N/A\nGPU models and configuration: No CUDA\nNvidia driver version: No CUDA\ncuDNN version: No CUDA\nHIP runtime version: N/A\nMIOpen runtime version: N/A\nIs XNNPACK available: True\n\nCPU:\nApple M2 Max\n\nVersions of relevant libraries:\n[pip3] numpy==1.26.2\n[pip3] torch==2.5.1\n[conda] numpy                     1.26.4                   pypi_0    pypi\n[conda] torch                     2.6.0                    pypi_0    pypi",
+  "git_hash": "01dfe44",
+  "date": 1740003800.038251,
+  "pretty_env_info": "PyTorch version: 2.5.1\nIs debug build: False\nCUDA used to build PyTorch: None\nROCM used to build PyTorch: N/A\n\nOS: macOS 14.6.1 (arm64)\nGCC version: Could not collect\nClang version: 15.0.0 (clang-1500.1.0.2.5)\nCMake version: version 3.27.8\nLibc version: N/A\n\nPython version: 3.11.6 (main, Nov 20 2023, 10:07:55) [Clang 15.0.0 (clang-1500.0.40.1)] (64-bit runtime)\nPython platform: macOS-14.6.1-arm64-arm-64bit\nIs CUDA available: False\nCUDA runtime version: No CUDA\nCUDA_MODULE_LOADING set to: N/A\nGPU models and configuration: No CUDA\nNvidia driver version: No CUDA\ncuDNN version: No CUDA\nHIP runtime version: N/A\nMIOpen runtime version: N/A\nIs XNNPACK available: True\n\nCPU:\nApple M2 Max\n\nVersions of relevant libraries:\n[pip3] numpy==1.26.2\n[pip3] torch==2.5.1\n[conda] numpy                     1.26.4                   pypi_0    pypi\n[conda] numpy-base                2.0.1           py310ha9811e2_1  \n[conda] torch                     2.6.0                    pypi_0    pypi",
   "transformers_version": "4.46.0",
   "upper_git_hash": null,
   "tokenizer_pad_token": [
@@ -120,7 +120,7 @@
   "fewshot_as_multiturn": false,
   "chat_template": null,
   "chat_template_sha": null,
-  "start_time": 2901.895522666,
-  "end_time": 3587.090212833,
-  "total_evaluation_time_seconds": "685.1946901669999"
+  "start_time": 6168.29185275,
+  "end_time": 7094.160992416,
+  "total_evaluation_time_seconds": "925.8691396660006"
 }

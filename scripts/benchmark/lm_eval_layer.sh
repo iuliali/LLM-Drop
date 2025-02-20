@@ -5,10 +5,10 @@ GPUs="0,1,2,3,4,5,6,7"
 
 model_names=("RoLlama2-7b-Instruct") # The model to be compressed.
 drop_modules=("all") # "attn" ) #"block") # The modules to be dropped.
-drop_nums=("2" "4" "8") # The number of dropped modules.
+drop_nums=("16") # The number of dropped modules.
 limit=100
-# tasks=("boolq") # "rte" "openbookqa" "piqa" "mmlu" "winogrande" "gsm8k" "hellaswag" "arc_challenge")
-tasks=("xquad_ro")
+tasks=("xquad_ro") # "rte" "openbookqa" "piqa" "mmlu" "winogrande" "gsm8k" "hellaswag" "arc_challenge")
+# tasks=("xquad_ro")
 # num_fewshots=("0") # "0" "0" "0" "5" "5" "5" "10" "25")
 # num_fewshots=("5")
 
@@ -39,9 +39,9 @@ do
                     --log_samples \
                     --show_config \
                     --limit $limit \
-                    --use_cache True \
                     --output_path ./${limit}-${tasks[$i]}_"$model_name"_drop"$drop_num"_"$drop_module".json >> ${limit}-output_"$model_name"_drop"$drop_num"_"$drop_module".out
             done
+            cp -f ./"$model_name"/backup_config.json ./"$model_name"/config.json # Restore the original config.json file.
         done
     done
 done
